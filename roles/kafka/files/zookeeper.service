@@ -1,0 +1,19 @@
+[Unit]
+Description=Apache Zookeeper Server
+After=network.target
+
+[Service]
+Type=simple
+User=kafka
+Group=kafka
+PIDFile=/var/run/zookeeper.pid
+
+Environment="JMX_PORT=19990"
+Environment="KAFKA_JMX_OPTS=-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.authenticate=false  -Dcom.sun.management.jmxremote.ssl=false -Djava.rmi.server.hostname=$HOSTNAME"
+
+Restart=on-failure
+ExecStart=/usr/bin/zookeeper-server-start /etc/kafka/zookeeper.properties
+ExecStop=/usr/bin/zookeeper-server-stop
+
+[Install]
+WantedBy=multi-user.target

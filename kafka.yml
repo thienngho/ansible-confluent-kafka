@@ -1,0 +1,8 @@
+---
+- name: Kafka base installation
+  hosts: kafka
+  remote_user: root
+  #environment: "{{ proxy_env }}"
+  serial: 1
+  roles:
+    - kafka

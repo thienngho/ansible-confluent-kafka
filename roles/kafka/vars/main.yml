@@ -1,0 +1,7 @@
+confluent_platform_repo_version: 3.2
+confluent_platform_package_version: 3.2.0-1
+kafka_config_dir: /etc/kafka
+zookeeper_servers: 127.0.0.1
+zookeeper_context: 2181
+broker_id: 1
+advertised_addr: 0.0.0.0
